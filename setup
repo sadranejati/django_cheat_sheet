@@ -4,3 +4,7 @@
     $ ./manage.py migrate
 > run local server
     $ ./manage.py runserver
+> specify each feature
+> setup an app for each feature
+    $ ./manage.py startapp main
+    $ ./manage.py statrapp admin
