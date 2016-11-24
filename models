@@ -49,3 +49,38 @@ class Post(models.Model):
             ...
             tags = models.ManyToManyField(tags,related_name='blog_posts') # x is a tag and i can access all of posts that related to x by x.blog_posts
 
+> models methods
+    > __str__ method
+        class person(models.Model):
+            name = models.CharField(max_length=32)
+            ...
+            def __str__(self):
+                return self.name + ":)"
+
+                or
+
+                return "name: {}, age: {}".format(self.name,self.age)
+
+> Meta class
+    class Post(models.Model):
+    ...
+    > ordering
+        ordering = [['-pub_date', 'title']]
+
+    > get latest by
+        get_latest_by = 'name'
+
+    > verbose name
+        verbose_name = 'story'
+
+    > verbose name plural
+        verbose_name_plural = 'stories'
+
+> checking for migration
+    $ ./manage.py check
+
+> making migration
+    $ ./manage.py makemigrationd
+
+> migrating
+    $ ./manage.py migrate
