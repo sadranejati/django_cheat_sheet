@@ -84,3 +84,31 @@ class Post(models.Model):
 
 > migrating
     $ ./manage.py migrate
+
+> Data Manipulating
+    > create object
+        new_post = post(title="post_title", ... )
+
+    > delete row
+        new_post.delete()
+
+    > save row
+        new_post.save()
+> Querying
+    > fetch all database records
+        all_posts = post.objects.all()
+    > count records
+        post.objects.count()
+    > get specific object
+        post.objects.get(slug="post_slug")
+
+        > containing string
+            post.objects.get(slug__contains="django")
+    > filtering model
+        post.objects.filter(title__contains="news")
+
+        > ordering
+            post.objects.filter(title__contains="news").order_by('-pub_date')
+
+    > listing all specific values
+        category.objects.values_list('slug','title') #select all category's title and slug
