@@ -11,3 +11,12 @@
 > connecting apps and django project:
     ./setting.py >
         INSTALLED_APPS = [...,'mian','site_admin']
+
+> Hello World!
+    > main/views.py
+        from django.http import HttpResponse
+        def index(request):
+            return HttpResponse("Hello World!")
+    > django_project/urls.py
+        from main.views import index
+        urlpatterns = [...,url(r'^$',index)]
