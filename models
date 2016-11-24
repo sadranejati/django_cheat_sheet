@@ -1,0 +1,51 @@
+> import models class at first
+from django.db import models
+
+> define model class
+class Post(models.Model):
+    pass
+
+> add fields to the model
+class Post(models.Model):
+    title = models.CharField(max_length=225)
+    pub_date = models.DateTimeField()
+    text = models.TextField()
+
+    > slug field
+    slug = models.SlugField()
+
+    > another essential fields:
+    models.URLField()
+    models.EmailField()
+
+    > OneToMany relationship
+    models.ForeignKey(model_class)
+
+    > ManyToMany relationship
+    models.ManyToManyField(category)
+
+    > OneToOne relationship
+    models.OneToOneField(model_clas)
+> fields options
+    > full name of field
+        name = models.CharField('user full name')
+        or
+        name = models.CharField(verbose_name='user full name')
+
+    > help text
+        name = models.CharField(help_text='user should enter full name here')
+
+    > unique for month
+        slug = models.SlugField(unique_for_month='pub_date') # pub_date is a date field that we want to set slug unique according it
+
+    > auto_now_add
+        pub_date = models.DateTimeField(auto_now_add=True) # it will automatically fill when we save a new database record
+
+    > auto_now
+        update_date = models.DateTimeField(auto_now=True) # it will automatically fill when we update a database record
+
+    > related name
+        class post(models.Model):
+            ...
+            tags = models.ManyToManyField(tags,related_name='blog_posts') # x is a tag and i can access all of posts that related to x by x.blog_posts
+
