@@ -1,2 +1,6 @@
-setting up a project
-$ django-admin start project_name
+> setting up a project
+    $ django-admin start project_name
+> creating database
+    $ ./manage.py migrate
+> run local server
+    $ ./manage.py runserver
